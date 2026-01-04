@@ -49,7 +49,7 @@ body { font-family: system-ui, sans-serif; }
 /* Логотип */
 .logo {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
   background: #e7ad41;
   padding: 6px 12px;
   border-radius: 6px;
@@ -184,21 +184,18 @@ body { font-family: system-ui, sans-serif; }
 
 
 
+@media (max-width: 680px) { 
+  .header-container { 
+    grid-template-columns: 1fr; /* одна колонка */ 
+    grid-template-rows: auto auto auto; /* ряды для элементов */ 
+    gap: 12px; } 
+    .nav-main, .nav-extra, .search-box { 
+    grid-template-columns: 1fr; /* одна колонка */ 
+    grid-template-rows: auto auto auto; /* ряды для элементов */ 
+    gap: 12px; } 
 
-/* Адаптив */
-@media (max-width: 680px) {
-  .header-container {
-    grid-template-columns: 1fr;
-    grid-template-rows:  auto;
-    gap: 12px;
-  }
-  /* .nav-main, .lang-switch, .search-box {
-    display: none;
-  } */
-}
-
-
-
+    .logo { font-size: 10px; text-align: left; } 
+    .menu-btn { justify-self: end; /* кнопка справа */ } }
 
 .main{
       max-width: 1440px;
@@ -219,7 +216,7 @@ body { font-family: system-ui, sans-serif; }
   margin: 0 auto;
   padding: 12px 24px;
   display: grid;
-  grid-template-columns: 200px 1fr 1fr 200px 40px;
+  grid-template-columns: 200px 1fr 1fr 200px;
   align-items: center;
   gap: 16px;
 
@@ -447,3 +444,5 @@ body { font-family: system-ui, sans-serif; }
 
 </body>
 </html>
+
+
