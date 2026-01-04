@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Шаблон з кольоровими блоками</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <style>
+    :root {
+      /* Палітра */
+      --c1: #104da3; /* темний */
+      --c2: #111827; /* ще темніше */
+      --c3: #2563eb; /* синій */
+      --c4: #10b981; /* зелений */
+      --c5: #f59e0b; /* жовтий/оранжевий */
+      --c6: #ef4444; /* червоний */
+      --c7: #a855f7; /* фіолетовий */
+      --c8: #14b8a6; /* бірюзовий */
+      --c9: #e5e7eb; /* світло-сірий */
+      --c10: #ffffff; /* білий */
+
+      --text-dark: #111;
+      --text-light: #fff;
+    }
+
+
+
+
+/* Общие стили */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; }
+
+/* Хедер */
+.site-header {
+  background: #6668eb;
+  color: #0f0f0f;
+  position: relative;
+}
+.header-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr 200px 40px;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Логотип */
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  background: #e7ad41;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+/* Основная навигация */
+.nav-main {
+  display: flex;
+  gap: 16px;
+}
+.nav-main a {
+  text-decoration: none;
+  color: #181515;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background 0.5s;
+}
+.nav-main a:hover {
+  background: rgba(133, 211, 204, 0.644);
+
+   /* cursor: pointer;
+    opacity: .8;
+    position: relative; */
+}
+
+
+/* Дополнительная навигация */
+.nav-extra {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.nav-extra a {
+  text-decoration: none;
+  color: #111;
+  background: #e4d16a;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Поиск */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.search-box input {
+  border: none;
+  padding: 6px 8px;
+  flex: 1;
+}
+.search-box button {
+  border: none;
+  background: #b7b3db;
+  color: #b6a065;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* Гамбургер */
+.menu-btn {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+}
+.menu-btn span {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #161515;
+  left: 0;
+  transition: 0.3s;
+}
+.menu-btn span:nth-child(1) { top: 6px; }
+.menu-btn span:nth-child(2) { top: 13px; }
+.menu-btn span:nth-child(3) { top: 20px; }
+
+/* Выпадающее меню */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 100%;
+  max-width: 1440px;
+  background: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: none;
+  transition: transform 0.3s ease;
+}
+.dropdown-menu.active {
+  display: block;
+  transform: translate(-50%, 0);
+}
+.menu-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 20px;
+}
+.menu-col h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #2563eb;
+}
+.menu-col a {
+  display: block;
+  margin-bottom: 6px;
+  text-decoration: none;
+  color: #333;
+}
+.menu-col a:hover {
+  color: #86d41f;
+ 
+}
+
+
+
+.wrapper > *:hover {
+    cursor: pointer;
+    opacity: .8;
+    position: relative;
+    top: 1px;
+}
+
+
+
+
+
+/* Адаптив */
+@media (max-width: 680px) {
+  .header-container {
+    grid-template-columns: 1fr;
+    grid-template-rows:  auto;
+    gap: 12px;
+  }
+  /* .nav-main, .lang-switch, .search-box {
+    display: none;
+  } */
+}
+
+
+
+
+.main{
+      max-width: 1440px;
+  margin: 0 auto;
+  padding: 10px 10px;
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr ;
+  align-items: center;
+  gap: 16px;
+}
+
+
+
+
+.hero{
+    
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr 200px 40px;
+  align-items: center;
+  gap: 16px;
+
+}
+
+
+
+.lang-switch {
+  text-align: center;
+}
+
+.lang-options {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.lang-btn {
+  background: #e5e7eb;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+}
+
+.lang-btn:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+.lang-btn.active {
+  background: #7a28c7;
+  color: #fff;
+}
+
+
+
+
+
+
+  </style>
+</head>
+
+
+
+<body>
+
+
+
+  <!-- Header -->
+   <header class="site-header">
+  <div class="header-container">
+    <!-- Логотип -->
+    <div class="logo">Beauty Center</div>
+
+    <!-- Основная навигация -->
+    <nav class="nav-main">
+      <a href="#">Головна</a>
+      <a href="#">Послуги</a>
+      <a href="#">Галерея</a>
+      <a href="#">Контакти</a>
+    </nav>
+
+    <!-- Дополнительная навигация -->
+    <nav class="nav-extra">
+      <a href="#">Новини</a>
+      <a href="#">Блог</a>
+      <a href="#">FAQ</a>
+    </nav>
+
+  
+
+    <!-- Кнопка-гамбургер -->
+    <div class="menu-btn" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- Выпадающее меню -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <div class="menu-columns">
+      <div class="menu-col">
+        <!-- Основная навигация -->
+    <nav class="nav-main">
+      <a href="#">Головна</a>
+      <a href="#">Послуги</a>
+      <a href="#">Галерея</a>
+      <a href="#">Контакти</a>
+      <a href="#">Новини</a>
+      <a href="#">Блог</a>
+      <a href="#">FAQ</a>
+    </nav>
+      </div>
+      <div class="menu-col">
+         <!-- Поиск -->
+    <div class="search-box">
+      <input type="text" placeholder="Пошук..." />
+      <button>🔍</button>
+    </div>
+      </div>
+      <div class="menu-col">
+        <div class="menu-col lang-switch"> <h3>Lаng</h3> 
+            <div class="lang-options"> 
+                <button class="lang-btn active">UK</button> 
+                <button class="lang-btn">RU</button> 
+                <button class="lang-btn">EN</button> 
+            </div> </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main -->
+  <main class="main">
+
+	  <!-- Выпадающее меню -->
+  <div class="main-container" >
+    <!-- <div class="columns"> -->
+      <div class="menu-col">
+        <h3>Категорія 1</h3>
+        <a href="#">Пункт 1</a>
+        <a href="#">Пункт 2</a>
+      <!-- </div> -->
+      <div class="menu-col">
+        <h3>Категорія 2</h3>
+        <a href="#">Пункт 3</a>
+        <a href="#">Пункт 4</a>
+      </div>
+      <div class="menu-col">
+        <h3>Категорія 3</h3>
+        <a href="#">Пункт 5</a>
+        <a href="#">Пункт 6</a>
+      </div>
+    </div>
+  </div>
+	  <!-- Выпадающее меню -->
+  <div class="main-container" >
+    <!-- <div class="columns"> -->
+      <div class="menu-col">
+        <h3>Категорія 1</h3>
+        <a href="#">Пункт 1</a>
+        <a href="#">Пункт 2</a>
+      <!-- </div> -->
+      <div class="menu-col">
+        <h3>Категорія 2</h3>
+        <a href="#">Пункт 3</a>
+        <a href="#">Пункт 4</a>
+      </div>
+      <div class="menu-col">
+        <h3>Категорія 3</h3>
+        <a href="#">Пункт 5</a>
+        <a href="#">Пункт 6</a>
+      </div>
+    </div>
+  </div>
+
+  	  <!-- Выпадающее меню -->
+  <div class="main-container" >
+    <!-- <div class="columns"> -->
+      <div class="menu-col">
+        <h3>Категорія 1</h3>
+        <a href="#">Пункт 1</a>
+        <a href="#">Пункт 2</a>
+      <!-- </div> -->
+      <div class="menu-col">
+        <h3>Категорія 2</h3>
+        <a href="#">Пункт 3</a>
+        <a href="#">Пункт 4</a>
+      </div>
+      <div class="menu-col">
+        <h3>Категорія 3</h3>
+        <a href="#">Пункт 5</a>
+        <a href="#">Пункт 6</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+  
+
+
+  </section>
+
+
+
+
+
+
+
+
+  
+
+  </main>
+
+ 
+
+<script>
+  const menuBtn = document.getElementById('menuToggle');
+  const dropdown = document.getElementById('dropdownMenu');
+
+  menuBtn.addEventListener('click', () => {
+    dropdown.classList.toggle('active');
+  });
+</script>
+
+		
+
+<script>
+  const langButtons = document.querySelectorAll('.lang-btn');
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      langButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      // здесь можно добавить логику смены языка сайта
+      console.log("Выбран язык:", btn.textContent);
+    });
+  });
+</script>
+
+</body>
+</html>
